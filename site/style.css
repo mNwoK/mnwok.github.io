@@ -1,0 +1,192 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main section {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Показываем только активную секцию */
+main section.active {
+    display: block;
+}
+
+/* Стиль для активной ссылки в меню */
+nav a.active {
+    color: #AD8B55;
+    border-bottom: 2px solid #AD8B55;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    /* Убрали display: flex и центровку отсюда */
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    /* Добавили центровку контейнера */
+    padding: 0 0 80px 0;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Теперь занимает 100% ширины экрана */
+header {
+    background-color: #0A1F44;
+    color: #ffffff;
+    width: 100%;
+    padding: 60px 0;
+    margin-bottom: 20px;
+}
+
+/* Ограничиваем ширину текста внутри синего фона */
+.header-content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+    /* Паддинги для мобильных устройств */
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Навигация с чёрным текстом */
+nav {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0A1F44;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 15px;
+    transition: opacity 0.3s ease;
+    text-transform: lowercase;
+}
+
+nav a:hover {
+    opacity: 0.6;
+    color: #AD8B55;
+}
+
+main {
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #AD8B55;
+    display: inline-block;
+}
+
+.project {
+    margin-bottom: 30px;
+}
+
+.project-title {
+    font-weight: 600;
+    color: #00356B;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.project p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.download-btn {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #AD8B55;
+    /* Ваш золотой акцент */
+    text-decoration: none;
+    border: 1px solid #AD8B55;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.download-btn:hover {
+    background-color: #AD8B55;
+    color: #ffffff;
+    opacity: 1;
+    /* Чтобы не срабатывал общий opacity для ссылок */
+}
+
+.tag {
+    font-size: 11px;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 5px;
+    display: block;
+}
+
+.footer-links {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 20px;
+    border-top: 1px solid #eee;
+}
+
+.footer-links a {
+    color: #AD8B55;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0 10px;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #ccc;
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}

@@ -7,168 +7,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-<style>
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    main section {
-        display: none;
-        animation: fadeIn 0.5s ease-out;
-    }
-
-    /* Показываем только активную секцию */
-    main section.active {
-        display: block;
-    }
-
-    /* Стиль для активной ссылки в меню */
-    nav a.active {
-        color: #AD8B55;
-        border-bottom: 2px solid #AD8B55;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-        color: #1a1a1a;
-        font-family: 'Inter', sans-serif;
-        /* Убрали display: flex и центровку отсюда */
-        line-height: 1.6;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 650px;
-        margin: 0 auto; /* Добавили центровку контейнера */
-        padding: 0 0 80px 0;
-        animation: fadeIn 0.8s ease-out;
-    }
-
-    /* Теперь занимает 100% ширины экрана */
-    header {
-        background-color: #0A1F44;
-        color: #ffffff;
-        width: 100%; 
-        padding: 60px 0;
-        margin-bottom: 20px;
-    }
-
-    /* Ограничиваем ширину текста внутри синего фона */
-    .header-content {
-        max-width: 650px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 0 20px; /* Паддинги для мобильных устройств */
-    }
-
-    h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 38px;
-        margin: 0 0 10px 0;
-        font-weight: 700;
-    }
-
-    .subtitle {
-        font-size: 15px;
-        color: rgba(255, 255, 255, 0.7);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    /* Навигация с чёрным текстом */
-    nav {
-        display: flex;
-        justify-content: center;
-        border-bottom: 1px solid #eee;
-        margin-bottom: 10px;
-        padding-bottom: 15px;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: #0A1F44;
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0 15px;
-        transition: opacity 0.3s ease;
-        text-transform: lowercase;
-    }
-
-    nav a:hover {
-        opacity: 0.6;
-        color: #AD8B55;
-    }
-
-    main {
-        padding: 0 20px;
-    }
-
-    section {
-        margin-bottom: 40px;
-    }
-
-    h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 22px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #AD8B55;
-        display: inline-block;
-    }
-
-    .project {
-        margin-bottom: 30px;
-    }
-
-    .project-title {
-        font-weight: 600;
-        color: #00356B;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .project p {
-        margin: 0;
-        font-size: 14px;
-        color: #555;
-    }
-
-    .tag {
-        font-size: 11px;
-        color: #aaa;
-        font-style: italic;
-        margin-top: 5px;
-        display: block;
-    }
-
-    .footer-links {
-        text-align: center;
-        margin-top: 40px;
-        padding: 20px 20px;
-        border-top: 1px solid #eee;
-    }
-
-    .footer-links a {
-        color: #AD8B55;
-        text-decoration: none;
-        font-size: 13px;
-        margin: 0 10px;
-    }
-
-    .copyright {
-        margin-top: 20px;
-        font-size: 11px;
-        color: #ccc;
-        text-align: center;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -201,8 +40,14 @@
             </p>
 
             <div class="project">
-                <a href="#" class="project-title">PhosAgro Valuation Model</a>
-                <p>In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026</p>
+                <span class="project-title">PhosAgro Valuation Model</span>
+                <p>In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026.</p>
+                
+                <!-- Кнопка скачивания -->
+                <a href="NES IRC-1.pdf" download class="download-btn">
+                    Download Report PDF
+                </a>
+
                 <span class="tag">#finance #valuation</span>
             </div>
             
@@ -231,31 +76,7 @@
     </div>
 </div>
 
-<script>
-    const tabs = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('main section');
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault(); // Отменяем стандартный переход по ссылке
-            
-            const targetId = tab.getAttribute('href').replace('#', '');
-
-            // 1. Убираем класс active у всех вкладок и секций
-            tabs.forEach(t => t.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
-
-            // 2. Добавляем active текущей вкладке и нужной секции
-            tab.classList.add('active');
-            document.getElementById(targetId).classList.add('active');
-        });
-    });
-
-    // По умолчанию открываем первую вкладку (About/Index)
-    document.addEventListener('DOMContentLoaded', () => {
-        tabs[0].click();
-    });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
