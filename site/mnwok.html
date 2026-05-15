@@ -2,11 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mikhail Fursov</title>
 
-    * {
-        box-sizing: border-box;
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    main section {
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    /* Показываем только активную секцию */
+    main section.active {
+        display: block;
+    }
+
+    /* Стиль для активной ссылки в меню */
+    nav a.active {
+        color: #AD8B55;
+        border-bottom: 2px solid #AD8B55;
     }
 
     body {
@@ -17,196 +37,215 @@
         font-family: 'Inter', sans-serif;
         display: flex;
         justify-content: center;
-        align-items: center;
-        min-height: 100vh;
+        line-height: 1.6;
     }
 
-    /* Main Container - Centered like monomere */
     .container {
         width: 100%;
         max-width: 650px;
-        padding: 40px 20px;
-        text-align: center;
+        padding: 0 0 80px 0;
+        animation: fadeIn 0.8s ease-out;
     }
 
-    /* Header Section */
+    /* Секция заголовка с синим фоном */
     header {
-        margin-bottom: 50px;
+        background-color: #0A1F44;
+        color: #ffffff;
+        text-align: center;
+        padding: 60px 20px;
+        margin-bottom: 20px;
     }
 
     h1 {
         font-family: 'Playfair Display', serif;
-        font-size: 32pt;
+        font-size: 38px;
+        margin: 0 0 10px 0;
         font-weight: 700;
-        margin-bottom: 5px;
-        letter-spacing: -0.5px;
     }
 
     .subtitle {
-        font-size: 11pt;
-        color: #666;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
         text-transform: uppercase;
         letter-spacing: 2px;
-        font-weight: 400;
     }
 
-    /* Tab Navigation - Minimalist style */
-    .tabs {
-        display: block;
+    /* Навигация с чёрным текстом */
+    nav {
+        display: flex;
+        justify-content: center;
         border-bottom: 1px solid #eee;
-        margin-bottom: 40px;
-        padding-bottom: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 15px;
     }
 
-    .tabs a {
+    nav a {
         text-decoration: none;
-        color: #999;
-        font-size: 10pt;
+        color: #0A1F44;
+        font-size: 14px;
+        font-weight: 600;
         margin: 0 15px;
-        transition: color 0.3s ease;
+        transition: opacity 0.3s ease;
         text-transform: lowercase;
     }
 
-    .tabs a:hover, .tabs a.active {
-        color: #00356B;
-        font-weight: 600;
+    nav a:hover {
+        opacity: 0.6;
+        color: #AD8B55;
     }
 
-    /* Content Area */
-    .content-section {
-        text-align: left;
-        line-height: 1.6;
-        font-size: 11pt;
+    main {
+        padding: 0 20px;
+    }
+
+    section {
+        margin-bottom: 40px;
     }
 
     h2 {
         font-family: 'Playfair Display', serif;
-        font-size: 18pt;
-        border-bottom: 1px solid #f0f0f0;
-        padding-bottom: 8px;
-        margin-top: 40px;
-        margin-bottom: 20px;
+        font-size: 22px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #AD8B55;
+        display: inline-block;
     }
 
-    .project-item {
-        margin-bottom: 25px;
+    .project {
+        margin-bottom: 30px;
     }
 
     .project-title {
         font-weight: 600;
         color: #00356B;
+        text-decoration: none;
         display: block;
-        margin-bottom: 4px;
-        font-size: 12pt;
+        margin-bottom: 5px;
     }
 
-    .project-desc {
+    .project p {
+        margin: 0;
+        font-size: 14px;
         color: #555;
-        font-size: 10.5pt;
     }
 
     .tag {
-        font-size: 9pt;
-        color: #888;
+        font-size: 11px;
+        color: #aaa;
         font-style: italic;
+        margin-top: 5px;
+        display: block;
     }
 
-    /* Footer / Links */
-    .links {
-        margin-top: 60px;
-        padding-top: 20px;
+    .footer-links {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px 20px;
         border-top: 1px solid #eee;
     }
 
-    .links a {
-        color: #00356B;
+    .footer-links a {
+        color: #AD8B55;
         text-decoration: none;
-        font-size: 10pt;
+        font-size: 13px;
         margin: 0 10px;
-        border-bottom: 1px transparent;
     }
 
-    .links a:hover {
-        text-decoration: underline;
-    }
-
-    footer {
-        margin-top: 30px;
-        font-size: 9pt;
+    .copyright {
+        margin-top: 20px;
+        font-size: 11px;
         color: #ccc;
+        text-align: center;
     }
 
-    /* Animation */
-    .fade-in {
-        animation: fadeIn 1s ease-in;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+    html {
+        scroll-behavior: smooth;
     }
 </style>
 </head>
 <body>
 
-<div class="container fade-in">
+<div class="container">
     <header>
         <h1>Mikhail Fursov</h1>
         <div class="subtitle">Wannabe Financial Analyst</div>
     </header>
 
-    <nav class="tabs">
-        <a href="#about" class="active">Index</a>
-        <a href="#projects">Work</a>
-        <a href="#hobbies">Life</a>
-        <a href="#contact">Contact</a>
+    <nav>
+        <a href="#about">about</a>
+        <a href="#projects">work & study</a>
+        <a href="#hobbies">life</a>
     </nav>
 
-    <main class="content-section">
+    <main>
         <section id="about">
             <h2>About</h2>
-            <p>
-                Based in Moscow, I focus on the intersection of quantitative finance and urban development. 
-                Currently a university student, I spend my time deconstructing market models and enjoy some 
-                urban researh time to time.
-            </p>
+            <p>Based in Moscow, I focus on classic and quantitative finance and data analysis. Currently a university student, I spend my time deconstructing market models, studing whole variety of things and participating in various projects and competitions.</p>
         </section>
 
         <section id="projects">
-            <h2>Work & Research</h2>
+            <h2>Projects & Research</h2>
+            <!-- Intro text for the Work section -->
+            <p style="font-size: 14px; color: #888; margin-bottom: 15px; font-style: italic;">
+                Below are the projects I am currently developing or have once completed. 
             
-            <div class="project-item">
-                <span class="project-title">PhosAgro Valuation Model</span>
-                <span class="project-desc">In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026.</span><br>
+            </p>
+
+            <div class="project">
+                <a href="#" class="project-title">PhosAgro Valuation Model</a>
+                <p>In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026</p>
                 <span class="tag">#finance #valuation</span>
             </div>
-
-            <div class="project-item">
-                <span class="project-title">Urban Transit Analysis</span>
-                <span class="project-desc">Developing a data-driven framework to analyze public transportation efficiency across Russian metropolitan areas.</span><br>
-                <span class="tag">#urban-studies</span>
+            
+            <div class="project">
+                <a href="#" class="project-title">Urban Transit Analytics</a>
+                <p>Developing a data-driven framework to analyze public transportation efficiency across Russian metropolitan areas.</p>
+                <span class="tag">#urban-studies #python</span>
             </div>
         </section>
-
+        
         <section id="hobbies">
             <h2>Interests</h2>
-            <p>
-                Beyond spreadsheets, I have a background in music production, having released several tracks 
-                during my school years. I'm also an avid Formula 1 enthusiast (Papaya Rules). I also enjoy urban 
-                studies and urban history, which are connected to my project about transportation data.
-            </p>
+            <p>Beyond spreadsheets, I enjoy maths, geography, history and pretty much everything that brings my curiosity leads me into. 
+                I'm also an avid urban studies enthusiast, which are connected to my project about transportation data. And potetially am
+                going to contribute to a course on urban planning</p>
         </section>
     </main>
 
-    <div class="links" id="contact">
+    <div class="footer-links" id="contact">
         <a href="mailto:mikhail-fursov-21@yandex.com">Email</a>
         <a href="/CV.pdf">Curriculum Vitae</a>
     </div>
 
-    <footer>
-        &copy; 2026 &mdash; Built with minimalism in mind.
-    </footer>
+    <div class="copyright">
+        © 2026 - mNwoK.
+    </div>
 </div>
+
+<script>
+    const tabs = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('main section');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault(); // Отменяем стандартный переход по ссылке
+            
+            const targetId = tab.getAttribute('href').replace('#', '');
+
+            // 1. Убираем класс active у всех вкладок и секций
+            tabs.forEach(t => t.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+
+            // 2. Добавляем active текущей вкладке и нужной секции
+            tab.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // По умолчанию открываем первую вкладку (About/Index)
+    document.addEventListener('DOMContentLoaded', () => {
+        tabs[0].click();
+    });
+</script>
 
 </body>
 </html>

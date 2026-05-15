@@ -2,228 +2,250 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Your Name</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mikhail Fursov</title>
 
-<!-- Шрифт -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <style>
-
-    /* Определение анимации появления */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    main section {
+        display: none;
+        animation: fadeIn 0.5s ease-out;
     }
-}
 
+    /* Показываем только активную секцию */
+    main section.active {
+        display: block;
+    }
 
-body {
-    margin: 0;
-    font-family: Inter, sans-serif;
-    background: #FFFCF5;
-    color: #1a1a1a;
-}
+    /* Стиль для активной ссылки в меню */
+    nav a.active {
+        color: #AD8B55;
+        border-bottom: 2px solid #AD8B55;
+    }
 
-/* Основная сетка */
-.wrapper {
-    display: grid;
-    grid-template-columns: 30% 60%;
-    min-height: 100vh;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        color: #1a1a1a;
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        justify-content: center;
+        line-height: 1.6;
+    }
 
-/* Левая панель */
-.sidebar {
-    animation: fadeInUp 0.8s ease-out forwards;
-    
-    background: #00356B;
-    color: white;
-    padding: 60px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    line-height: 1.8;
-}
+    .container {
+        width: 100%;
+        max-width: 650px;
+        padding: 0 0 80px 0;
+        animation: fadeIn 0.8s ease-out;
+    }
 
-.sidebar h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    margin: 0;
-}
+    /* Секция заголовка с синим фоном */
+    header {
+        background-color: #0A1F44;
+        color: #ffffff;
+        text-align: center;
+        padding: 60px 20px;
+        margin-bottom: 20px;
+    }
 
-.subtitle {
-    margin-top: 10px;
-    font-size: 14px;
-    opacity: 0.8;
-    letter-spacing: 1px;
-}
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 38px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+    }
 
-/* Навигация */
-.nav {
-    margin-top: 40px;
-}
+    .subtitle {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
 
-.nav a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 10px;
-    opacity: 0.8;
+    /* Навигация с чёрным текстом */
+    nav {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+        padding-bottom: 15px;
+    }
 
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+    nav a {
+        text-decoration: none;
+        color: #0A1F44;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 15px;
+        transition: opacity 0.3s ease;
+        text-transform: lowercase;
+    }
 
-.nav a:hover {
-    opacity: 1;
-    transform: translateY(-4px);
-}
+    nav a:hover {
+        opacity: 0.6;
+        color: #AD8B55;
+    }
 
-/* Правая часть */
-.content {
-    padding: 80px 60px;
+    main {
+        padding: 0 20px;
+    }
 
-    animation: fadeInUp 0.8s ease-out 0.2s forwards;
-    /* Чтобы контент не мелькал до начала анимации */
-    opacity: 0;
-}
+    section {
+        margin-bottom: 40px;
+    }
 
-/* Секции */
-section {
-    margin-bottom: 60px;
-}
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #AD8B55;
+        display: inline-block;
+    }
 
-h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
+    .project {
+        margin-bottom: 30px;
+    }
 
-/* Карточки проектов */
-.project {
-    transition: transform 0.3s ease;
-    
-    padding: 15px;
-    border-left: 3px solid #00356B;
-    margin-bottom: 15px;
-}
+    .project-title {
+        font-weight: 600;
+        color: #00356B;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+    }
 
-.project a {
-    color: #00356B;
-    text-decoration: none;
-}
+    .project p {
+        margin: 0;
+        font-size: 14px;
+        color: #555;
+    }
 
-.project:hover {
-    transform: scale(1.02); /* Легкое увеличение */
-}
+    .tag {
+        font-size: 11px;
+        color: #aaa;
+        font-style: italic;
+        margin-top: 5px;
+        display: block;
+    }
 
-/* Контакты */
-.contacts a {
-    display: block;
-    margin-bottom: 8px;
-    color: #00356B;
-    text-decoration: none;
-}
+    .footer-links {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px 20px;
+        border-top: 1px solid #eee;
+    }
 
-/* Мелкий текст */
-p {
-    line-height: 1.3;
-}
+    .footer-links a {
+        color: #AD8B55;
+        text-decoration: none;
+        font-size: 13px;
+        margin: 0 10px;
+    }
 
+    .copyright {
+        margin-top: 20px;
+        font-size: 11px;
+        color: #ccc;
+        text-align: center;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
 </style>
-
 </head>
-
 <body>
 
-<div class="wrapper">
+<div class="container">
+    <header>
+        <h1>Mikhail Fursov</h1>
+        <div class="subtitle">Wannabe Financial Analyst</div>
+    </header>
 
-    <!-- Левая панель -->
-    <div class="sidebar">
-        <div>
-            <h1>Mikhail Fursov</h1>
-            <div class="subtitle">Wannabe Financial Analyst</div>
+    <nav>
+        <a href="#about">about</a>
+        <a href="#projects">work & study</a>
+        <a href="#hobbies">life</a>
+    </nav>
 
-            <div class="nav">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#hobbies">Hobbies</a>
-                <a href="#cv">CV</a>
-                <a href="#contacts">Contacts</a>
-            </div>
-        </div>
-
-        <div style="font-size:12px; opacity:0.6;">
-            © 2026
-        </div>
-    </div>
-
-    <!-- Правая часть -->
-    <div class="content">
-
+    <main>
         <section id="about">
             <h2>About</h2>
-            <p>
-                Hi! I'm Misha, a Moscow-based student with a passion for finance and curiosity about everything else. 
-            </p>
-            <p>
-                I have a strong interest in financial analysis, valuation, and market research. I am eager to apply my skills and knowledge to real-world projects and contribute to the financial industry.
-            </p>
+            <p>Based in Moscow, I focus on classic and quantitative finance and data analysis. Currently a university student, I spend my time deconstructing market models, studing whole variety of things and participating in various projects and competitions.</p>
         </section>
 
         <section id="projects">
-            <h2>Projects</h2>
+            <h2>Projects & Research</h2>
+            <!-- Intro text for the Work section -->
+            <p style="font-size: 14px; color: #888; margin-bottom: 15px; font-style: italic;">
+                Below are the projects I am currently developing or have once completed. 
+            
+            </p>
 
             <div class="project">
-                <strong>PhosAgro Valuation Model</strong><br>
-                <p>
-                    Valuation of PhosAgro using DCF and multiples analysis for NES Investment Research Championship 2026
-                </p>
-                <p>
-                    (link to be added, for now NDA)
-                </p>
+                <a href="#" class="project-title">PhosAgro Valuation Model</a>
+                <p>In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026</p>
+                <span class="tag">#finance #valuation</span>
             </div>
-
+            
             <div class="project">
-                <strong>Urban reasearch</strong><br>
-                <p>
-                    Public transit data about Russian cities
-                </p>
-                <p>
-                    (work in progress, link to be added)
-                </p>
-                
+                <a href="#" class="project-title">Urban Transit Analytics</a>
+                <p>Developing a data-driven framework to analyze public transportation efficiency across Russian metropolitan areas.</p>
+                <span class="tag">#urban-studies #python</span>
             </div>
-
         </section>
-
+        
         <section id="hobbies">
-            <h2>Hobbies</h2>
-            <p>
-                It will be no surprise that I enjoy investing in financial markets, but I really do.
-            </p>
-            <p>
-                Apart from that, I have a strong interest in music and managed to release a few tracks during school years. I also enjoy urban studies and urban history, which are connected to my project about transportation data. Last but not least, I an F1 fan, and am definetely convinced that Papaya Rules.
-            </p>
+            <h2>Interests</h2>
+            <p>Beyond spreadsheets, I enjoy maths, geography, history and pretty much everything that brings my curiosity leads me into. 
+                I'm also an avid urban studies enthusiast, which are connected to my project about transportation data. And potetially am
+                going to contribute to a course on urban planning</p>
         </section>
+    </main>
 
-        <section id="cv">
-            <h2>CV</h2>
-                <a href="/CV.pdf">Download CV</a>
-    
-        </section>
-
-        <section id="contacts" class="contacts">
-            <h2>Contacts</h2>
-            <a href="mailto:mikhail-fursov-21@yandex.com">Email</a>
-        </section>
-
+    <div class="footer-links" id="contact">
+        <a href="mailto:mikhail-fursov-21@yandex.com">Email</a>
+        <a href="/CV.pdf">Curriculum Vitae</a>
     </div>
 
+    <div class="copyright">
+        © 2026 - mNwoK.
+    </div>
 </div>
+
+<script>
+    const tabs = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('main section');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault(); // Отменяем стандартный переход по ссылке
+            
+            const targetId = tab.getAttribute('href').replace('#', '');
+
+            // 1. Убираем класс active у всех вкладок и секций
+            tabs.forEach(t => t.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+
+            // 2. Добавляем active текущей вкладке и нужной секции
+            tab.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // По умолчанию открываем первую вкладку (About/Index)
+    document.addEventListener('DOMContentLoaded', () => {
+        tabs[0].click();
+    });
+</script>
 
 </body>
 </html>

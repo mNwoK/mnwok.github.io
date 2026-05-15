@@ -158,35 +158,34 @@
         <a href="#about">index</a>
         <a href="#projects">work</a>
         <a href="#hobbies">life</a>
-        <a href="#contact">contact</a>
     </nav>
 
     <main>
         <section id="about">
             <h2>About</h2>
-            <p>Based in Moscow, I focus on the intersection of quantitative finance and urban development[cite: 1]. Currently a university student, I spend my time deconstructing market models and exploring how data can revitalize urban spaces[cite: 1].</p>
+            <p>Based in Moscow, I focus on the intersection of quantitative and classic finance and urban development. Currently a university student, I spend my time deconstructing market models, studing whole variety of things and participating in various projects and competitions.</p>
         </section>
 
         <section id="projects">
             <h2>Work & Research</h2>
             <div class="project">
                 <a href="#" class="project-title">PhosAgro Valuation Model</a>
-                <p>In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026[cite: 1].</p>
+                <p>In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026.</p>
                 <span class="tag">#finance #valuation</span>
             </div>
             <div class="project">
                 <a href="#" class="project-title">Urban Transit Analytics</a>
-                <p>Developing a data-driven framework to analyze public transportation efficiency across Russian metropolitan areas[cite: 1].</p>
+                <p>Currentry planing a data-driven framework to analyze public transportation efficiency across Russian metropolitan areas</p>
                 <span class="tag">#urban-studies #python</span>
             </div>
         </section>
 
         <section id="hobbies">
             <h2>Interests</h2>
-            <p>Beyond spreadsheets, I have a background in music production, having released several tracks 
-                during my school years. I'm also an avid Formula 1 enthusiast (Papaya Rules). I also enjoy urban 
-                studies and urban history, which are connected to my project about transportation data.
-            </p>
+            <p>Beyond spreadsheets, I enjoy maths, geography, history and pretty much everything that brings my curiosity leads me into. 
+                I'm also an avid urban studies enthusiast, which are connected to my project about transportation data. And potetially am
+                going to contribute to a course on urban planning.</p>
+
 
             </section>
     </main>
