@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        color: #1a1a1a;
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    /* Main Container - Centered like monomere */
+    .container {
+        width: 100%;
+        max-width: 650px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    /* Header Section */
+    header {
+        margin-bottom: 50px;
+    }
+
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 32pt;
+        font-weight: 700;
+        margin-bottom: 5px;
+        letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+        font-size: 11pt;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 400;
+    }
+
+    /* Tab Navigation - Minimalist style */
+    .tabs {
+        display: block;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 40px;
+        padding-bottom: 10px;
+    }
+
+    .tabs a {
+        text-decoration: none;
+        color: #999;
+        font-size: 10pt;
+        margin: 0 15px;
+        transition: color 0.3s ease;
+        text-transform: lowercase;
+    }
+
+    .tabs a:hover, .tabs a.active {
+        color: #00356B;
+        font-weight: 600;
+    }
+
+    /* Content Area */
+    .content-section {
+        text-align: left;
+        line-height: 1.6;
+        font-size: 11pt;
+    }
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 18pt;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 8px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .project-item {
+        margin-bottom: 25px;
+    }
+
+    .project-title {
+        font-weight: 600;
+        color: #00356B;
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12pt;
+    }
+
+    .project-desc {
+        color: #555;
+        font-size: 10.5pt;
+    }
+
+    .tag {
+        font-size: 9pt;
+        color: #888;
+        font-style: italic;
+    }
+
+    /* Footer / Links */
+    .links {
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .links a {
+        color: #00356B;
+        text-decoration: none;
+        font-size: 10pt;
+        margin: 0 10px;
+        border-bottom: 1px transparent;
+    }
+
+    .links a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        margin-top: 30px;
+        font-size: 9pt;
+        color: #ccc;
+    }
+
+    /* Animation */
+    .fade-in {
+        animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<div class="container fade-in">
+    <header>
+        <h1>Mikhail Fursov</h1>
+        <div class="subtitle">Wannabe Financial Analyst</div>
+    </header>
+
+    <nav class="tabs">
+        <a href="#about" class="active">Index</a>
+        <a href="#projects">Work</a>
+        <a href="#hobbies">Life</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main class="content-section">
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                Based in Moscow, I focus on the intersection of quantitative finance and urban development. 
+                Currently a university student, I spend my time deconstructing market models and enjoy some 
+                urban researh time to time.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Work & Research</h2>
+            
+            <div class="project-item">
+                <span class="project-title">PhosAgro Valuation Model</span>
+                <span class="project-desc">In-depth DCF and multiples analysis conducted for the NES Investment Research Championship 2026.</span><br>
+                <span class="tag">#finance #valuation</span>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">Urban Transit Analysis</span>
+                <span class="project-desc">Developing a data-driven framework to analyze public transportation efficiency across Russian metropolitan areas.</span><br>
+                <span class="tag">#urban-studies</span>
+            </div>
+        </section>
+
+        <section id="hobbies">
+            <h2>Interests</h2>
+            <p>
+                Beyond spreadsheets, I have a background in music production, having released several tracks 
+                during my school years. I'm also an avid Formula 1 enthusiast (Papaya Rules). I also enjoy urban 
+                studies and urban history, which are connected to my project about transportation data.
+            </p>
+        </section>
+    </main>
+
+    <div class="links" id="contact">
+        <a href="mailto:mikhail-fursov-21@yandex.com">Email</a>
+        <a href="/CV.pdf">Curriculum Vitae</a>
+    </div>
+
+    <footer>
+        &copy; 2026 &mdash; Built with minimalism in mind.
+    </footer>
+</div>
+
+</body>
+</html>
