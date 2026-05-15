@@ -109,6 +109,64 @@ section {
     margin-bottom: 40px;
 }
 
+/* Контейнер для всего блока */
+.buttons-zone {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px outset #ccc;
+    /* Олдскульная рамка вокруг блока */
+    background-color: #f0f0f0;
+    font-family: monospace;
+}
+
+.buttons-zone h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Сетка для кнопок */
+.buttons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Кнопки будут переноситься на новую строку, если не влезают */
+    gap: 8px;
+    /* Расстояние между кнопками */
+    justify-content: center;
+    /* Центрируем кнопки */
+}
+
+/* Стили для ссылок-оберток */
+.buttons-grid a {
+    display: inline-block;
+    line-height: 0;
+    /* Убирает лишние отступы снизу у картинок */
+    transition: transform 0.15s ease;
+}
+
+/* Эффект при наведении (как в вашем примере с hover:scale-180, но чуть скромнее) */
+.buttons-grid a:hover {
+    transform: scale(1.2);
+    /* Кнопка слегка увеличивается */
+    z-index: 10;
+    /* Чтобы увеличенная кнопка была поверх соседних */
+}
+
+/* Самое главное: сохраняем пиксели четкими! */
+.buttons-grid img {
+    width: 88px;
+    height: 31px;
+    display: block;
+    image-rendering: -moz-crisp-edges;
+    /* Для старых Firefox */
+    image-rendering: -webkit-crisp-edges;
+    /* Для старых Safari/Chrome */
+    image-rendering: pixelated;
+    /* Современный стандарт */
+    image-rendering: crisp-edges;
+}
+
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
@@ -187,63 +245,7 @@ h2 {
     text-align: center;
 }
 
-/* Контейнер для всего блока */
-.buttons-zone {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 15px;
-    border: 2px outset #ccc;
-    /* Олдскульная рамка вокруг блока */
-    background-color: #f0f0f0;
-    font-family: monospace;
-}
 
-.buttons-zone h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-/* Сетка для кнопок */
-.buttons-grid {
-    display: flex;
-    flex-wrap: wrap;
-    /* Кнопки будут переноситься на новую строку, если не влезают */
-    gap: 8px;
-    /* Расстояние между кнопками */
-    justify-content: center;
-    /* Центрируем кнопки */
-}
-
-/* Стили для ссылок-оберток */
-.buttons-grid a {
-    display: inline-block;
-    line-height: 0;
-    /* Убирает лишние отступы снизу у картинок */
-    transition: transform 0.15s ease;
-}
-
-/* Эффект при наведении (как в вашем примере с hover:scale-180, но чуть скромнее) */
-.buttons-grid a:hover {
-    transform: scale(1.2);
-    /* Кнопка слегка увеличивается */
-    z-index: 10;
-    /* Чтобы увеличенная кнопка была поверх соседних */
-}
-
-/* Самое главное: сохраняем пиксели четкими! */
-.buttons-grid img {
-    width: 88px;
-    height: 31px;
-    display: block;
-    image-rendering: -moz-crisp-edges;
-    /* Для старых Firefox */
-    image-rendering: -webkit-crisp-edges;
-    /* Для старых Safari/Chrome */
-    image-rendering: pixelated;
-    /* Современный стандарт */
-    image-rendering: crisp-edges;
-}
 
 html {
     scroll-behavior: smooth;
