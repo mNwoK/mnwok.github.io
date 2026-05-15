@@ -120,12 +120,6 @@ section {
     font-family: monospace;
 }
 
-.buttons-zone h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
 /* Сетка для кнопок */
 .buttons-grid {
     display: flex;
