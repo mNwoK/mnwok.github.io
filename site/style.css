@@ -129,6 +129,10 @@ section {
     /* Расстояние между кнопками */
     justify-content: center;
     /* Центрируем кнопки */
+
+    pointer-events: auto !important;
+    /* Говорит браузеру: "Эта картинка осязаема для мыши" */
+    user-select: auto !important;
 }
 
 /* Стили для ссылок-оберток */
@@ -142,6 +146,7 @@ section {
     will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    pointer-events: bounding-box;
 }
 
 /* Эффект при наведении (как в вашем примере с hover:scale-180, но чуть скромнее) */
