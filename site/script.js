@@ -21,3 +21,19 @@ tabs.forEach(tab => {
 document.addEventListener('DOMContentLoaded', () => {
     tabs[0].click();
 });
+
+// Сделать так: href у ссылки указывает на изображение (чтобы ПКМ мог сохранить картинку),
+// а реальный сайт хранится в data-target. При обычном (левом) клике открываем data-target.
+document.addEventListener('DOMContentLoaded', () => {
+    const btnLinks = document.querySelectorAll('.buttons-grid a[data-target]');
+    btnLinks.forEach(a => {
+        a.addEventListener('click', (e) => {
+            // Оставляем поведение для средних кнопок / ПКМ — обработчик click срабатывает только для левой кнопки
+            e.preventDefault();
+            const target = a.getAttribute('data-target');
+            if (target) {
+                window.open(target, '_blank', 'noopener');
+            }
+        });
+    });
+});
