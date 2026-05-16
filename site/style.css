@@ -130,7 +130,6 @@ section {
     justify-content: center;
     /* Центрируем кнопки */
 
-    /* Оставляем обычное поведение указателя для контейнера */
 }
 
 /* Стили для ссылок-оберток */
@@ -144,6 +143,7 @@ section {
     will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    pointer-events: none;
 }
 
 /* Эффект при наведении (как в вашем примере с hover:scale-180, но чуть скромнее) */
