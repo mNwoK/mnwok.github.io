@@ -130,9 +130,7 @@ section {
     justify-content: center;
     /* Центрируем кнопки */
 
-    pointer-events: auto !important;
-    /* Говорит браузеру: "Эта картинка осязаема для мыши" */
-    user-select: auto !important;
+    /* Оставляем обычное поведение указателя для контейнера */
 }
 
 /* Стили для ссылок-оберток */
@@ -146,7 +144,6 @@ section {
     will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    pointer-events: bounding-box;
 }
 
 /* Эффект при наведении (как в вашем примере с hover:scale-180, но чуть скромнее) */
@@ -162,7 +159,7 @@ section {
     width: 88px;
     height: 31px;
     display: block;
-    pointer-events: none;
+    pointer-events: auto;
     image-rendering: -moz-crisp-edges;
     /* Для старых Firefox */
     image-rendering: -webkit-crisp-edges;
