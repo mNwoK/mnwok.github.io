@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   site:
     build: .
@@ -10,4 +8,4 @@ services:
     volumes:
       # ЗАМЕНИТЕ /root/my_certs на ваш реальный путь к папке с сертификатами на сервере
       # :ro означает read-only (только для чтения), контейнер не сможет их повредить
-      - root/cert/ip:/etc/nginx/ssl:ro
+      - /root/cert/ip:/etc/nginx/ssl:ro
