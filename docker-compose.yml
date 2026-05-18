@@ -3,6 +3,11 @@ version: "3"
 services:
   site:
     build: .
+    container_name: my_site
     ports:
-      - "80:80"
+      - "127.0.0.1:8443:8443"
     restart: always
+    volumes:
+      # ЗАМЕНИТЕ /root/my_certs на ваш реальный путь к папке с сертификатами на сервере
+      # :ro означает read-only (только для чтения), контейнер не сможет их повредить
+      - root/cert/ip:/etc/nginx/ssl:ro
