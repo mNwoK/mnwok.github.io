@@ -24,7 +24,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             # 1. Переходим в папку с проектом на сервере (замените путь на свой)
-            cd /landing
+            cd /mnwok.github.io
             
             # 2. Стягиваем последние изменения из репозитория
             git pull origin main
