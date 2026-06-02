@@ -1,21 +1,29 @@
 name: Deploy Website
 
-# Скрипт запускается автоматически при каждом push в ветку main
 on:
   push:
     branches:
       - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+# Права доступа, необходимые для работы GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
+# Исключаем конфликты при одновременных деплоях Pages
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Задача 1: Ваша существующая сборка и деплой на сервер
+  deploy-to-server:
+    runs-on: ubuntu-latest
     steps:
-      # Шаг 1: Скачиваем код из репозитория (опционально, если нужно что-то собирать прямо в CI)
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Шаг 2: Подключаемся к серверу по SSH и выполняем команды обновления
       - name: Deploy to Server via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -23,16 +31,30 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            # 1. Переходим в папку с проектом на сервере (замените путь на свой)
             cd /mnwok.github.io
-            
-            # 2. Стягиваем последние изменения из репозитория
             git pull origin main
-            
-            # 3. Пересобираем и перезапускаем докер-контейнеры
-            # Флаг --build заставит Docker пересобрать образ, если изменился Dockerfile или код
-            # Флаг -d запустит контейнеры в фоновом режиме
             docker compose up -d --build
-            
-            # 4. Опционально: очищаем старые неиспользуемые образы, чтобы не забивать диск
             docker image prune -f
+
+  # Задача 2: Новый деплой в GitHub Pages из папки /site
+  deploy-to-pages:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Указываем, что корнем сайта для GitHub Pages должна стать папка /site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
